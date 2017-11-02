@@ -12,17 +12,23 @@ import java.util.List;
 import android.content.Context;
 import android.util.Log;
 
+import ca.ualberta.cs.lonelytwitter.lonelytweet.LonelyTweet;
+
 public class TweetsFileManager {
 
-	private Context ctx;
+	// exercise task 3
+	private static final String FILE_NAME = "file.sav";
+
+	// Issue fixed: declaration given a final modifier
+	private final Context ctx;
 
 	public TweetsFileManager(Context ctx) {
 		this.ctx = ctx;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<NormalLonelyTweet> loadTweets() {
-		List<NormalLonelyTweet> tweets = new ArrayList<NormalLonelyTweet>();
+	public List<LonelyTweet> loadTweets() {
+		List<LonelyTweet> tweets = new ArrayList<LonelyTweet>();
 
 		try {
 			FileInputStream fis = ctx.openFileInput("file.sav");
@@ -31,7 +37,7 @@ public class TweetsFileManager {
 			Object o = ois.readObject();
 
 			if (o instanceof ArrayList) {
-				tweets = (ArrayList<NormalLonelyTweet>) o;
+				tweets = (ArrayList<LonelyTweet>) o;
 			} else {
 				Log.i("LonelyTwitter", "Error casting");
 			}
@@ -47,9 +53,9 @@ public class TweetsFileManager {
 		return tweets;
 	}
 
-	public void saveTweets(List<NormalLonelyTweet> tweets) {
+	public void saveTweets(List<LonelyTweet> tweets) {
 		try {
-			FileOutputStream fos = ctx.openFileOutput("file.sav", 0);
+			FileOutputStream fos = ctx.openFileOutput(FILE_NAME, 0);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 			oos.writeObject(tweets);
