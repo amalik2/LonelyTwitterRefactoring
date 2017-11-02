@@ -19,7 +19,7 @@ public class TweetsFileManager {
 	// exercise task 3
 	private static final String FILE_NAME = "file.sav";
 
-	// Issue fixed: declaration given a final modifier
+	// Issue fixed: declaration given a final modifier. Prevents issues caused by modifying it such as setting it to null
 	private final Context ctx;
 
 	public TweetsFileManager(Context ctx) {

@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class NormalLonelyTweet extends LonelyTweet {
 
-	// Issue fixed: unused declaration
+	// Issue fixed: unused declaration. Fixed because the date and text should be specified even if
+	// this was used
 	/*public NormalLonelyTweet() {
 	}*/
 

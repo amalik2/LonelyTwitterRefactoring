@@ -8,7 +8,8 @@ import java.util.Date;
 
 public class ImportantLonelyTweet extends LonelyTweet{
 
-    // Issue fixed: unused declaration
+    // Issue fixed: unused declaration. Fixed because the date and text should be specified even if
+    // this was used
     /*public ImportantLonelyTweet() {
     }*/
 
@@ -29,7 +30,7 @@ public class ImportantLonelyTweet extends LonelyTweet{
         }
 
         return true;*/
-        // Issue fixed: redundant if statement
+        // Issue fixed: redundant if statement so that the method is much simpler to understand
         return (tweetBody.trim().length() > 0 && tweetBody.trim().length() <= 20);
     }
 

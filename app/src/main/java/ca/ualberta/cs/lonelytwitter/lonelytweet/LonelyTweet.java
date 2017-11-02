@@ -11,12 +11,13 @@ import java.util.Date;
 public abstract class LonelyTweet implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // Issue Fixed: changed from protected to private
+    // Issue Fixed: changed from protected to private. Prevents the subclasses from modifying it accidentally
     private Date tweetDate;
     protected String tweetBody;
 
-    public LonelyTweet() {
-    }
+    // removed because the date and text should be specified
+    /*public LonelyTweet() {
+    }*/
 
     public LonelyTweet(String text, Date date) {
         this.tweetDate = date;
@@ -47,7 +48,7 @@ public abstract class LonelyTweet implements Serializable {
         }
 
         return true;*/
-        // Issue fixed: redundant if statement
+        // Issue fixed: redundant if statement so that the method is much simpler to understand
         return (tweetBody.trim().length() > 0 && tweetBody.trim().length() <= 10);
     }
 
